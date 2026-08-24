@@ -68,6 +68,7 @@ public class SistemaVotacao {
 
         scanner.close();
     }
+
     static int lerInteiro(String mensagem) {
         while (true) {
             System.out.print(mensagem);
@@ -81,6 +82,38 @@ public class SistemaVotacao {
             System.out.println("Entrada inválida. Digite um número.");
             scanner.nextLine();
         }
+    }
+    {
+ for (int i = 0; i < quantidadeCandidatos; i++) {
+        int numero;
+
+        while (true) {
+            numero = lerInteiro(
+                    "\nNúmero do candidato " + (i + 1) + ": "
+            );
+
+            if (numero <= 0) {
+                System.out.println("O número deve ser maior que zero.");
+                continue;
+            }
+
+            boolean numeroRepetido = false;
+
+            for (int j = 0; j < i; j++) {
+                if (numerosCandidatos[j] == numero) {
+                    numeroRepetido = true;
+                    break;
+                }
+            }
+
+            if (numeroRepetido) {
+                System.out.println("Esse número já está cadastrado.");
+                continue;
+            }
+
+            break;
+        }
+    }
     }
 
 }
