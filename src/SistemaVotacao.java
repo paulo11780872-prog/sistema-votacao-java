@@ -68,7 +68,6 @@ public class SistemaVotacao {
 
         scanner.close();
     }
-
     static int lerInteiro(String mensagem) {
         while (true) {
             System.out.print(mensagem);
@@ -83,37 +82,60 @@ public class SistemaVotacao {
             scanner.nextLine();
         }
     }
-    {
- for (int i = 0; i < quantidadeCandidatos; i++) {
-        int numero;
 
-        while (true) {
-            numero = lerInteiro(
-                    "\nNúmero do candidato " + (i + 1) + ": "
-            );
+        static void cadastrarCandidatos() {
 
-            if (numero <= 0) {
-                System.out.println("O número deve ser maior que zero.");
-                continue;
-            }
+            for (int i = 0; i < MAX_CANDIDATOS; i++) {
 
-            boolean numeroRepetido = false;
+                int numero;
 
-            for (int j = 0; j < i; j++) {
-                if (numerosCandidatos[j] == numero) {
-                    numeroRepetido = true;
+                while (true) {
+                    numero = lerInteiro(
+                            "\nNúmero do candidato " + (i + 1) + ": "
+                    );
+
+                    if (numero <= 0) {
+                        System.out.println("O número deve ser maior que zero.");
+                        continue;
+                    }
+
+                    boolean numeroRepetido = false;
+
+                    for (int j = 0; j < i; j++) {
+                        if (numerosCandidatos[j] == numero) {
+                            numeroRepetido = true;
+                            break;
+                        }
+                    }
+
+                    if (numeroRepetido) {
+                        System.out.println("Esse número já está cadastrado.");
+                        continue;
+                    }
+
                     break;
                 }
+
+                String nome;
+
+                do {
+                    System.out.print("Nome do candidato: ");
+                    nome = scanner.nextLine().trim();
+
+                    if (nome.isEmpty()) {
+                        System.out.println("O nome não pode ficar vazio.");
+                    }
+
+                } while (nome.isEmpty());
+
+                numerosCandidatos[i] = numero;
+                nomesCandidatos[i] = nome;
+                votosCandidatos[i] = 0;
+
+                quantidadeCandidatos++;
             }
 
-            if (numeroRepetido) {
-                System.out.println("Esse número já está cadastrado.");
-                continue;
-            }
-
-            break;
+            System.out.println("\nCandidatos cadastrados com sucesso!");
         }
     }
-    }
-
 }
