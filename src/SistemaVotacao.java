@@ -244,19 +244,22 @@ public class SistemaVotacao {
             }
 
             System.out.println();
-        }
-        int totalVotos = 0;
+            int totalVotos = 0;
 
-        for (int i = 0; i < quantidadeCandidatos; i++) {
-            totalVotos += votosCandidatos[i];
+            for (int i = 0; i < quantidadeCandidatos; i++) {
+                totalVotos += votosCandidatos[i];
+            }
+
+            if (totalVotos == 0) {
+                System.out.println("Nenhum voto foi registrado.");
+                return;
+            }
+
         }
 
-        if (totalVotos == 0) {
-            System.out.println("Nenhum voto foi registrado.");
-            return;
-        }
 
     }
+
 
 
 }
