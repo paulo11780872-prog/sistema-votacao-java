@@ -1,30 +1,16 @@
-### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-.kotlin
+# Arquivos compilados do Java
+*.class
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Pastas de compilação
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+out/
+target/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
+# IDEs
+.idea/
 .vscode/
+*.iml
 
-### Mac OS ###
+# Sistema operacional
 .DS_Store
+Thumbs.db
